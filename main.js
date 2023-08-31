@@ -19,10 +19,9 @@ function isEvenOrOdd(sum) {
 
 const userNumberInput = document.getElementById('user_number');
 
-const checkButton = document.getElementById("even_or_odd");
 const resultDom = document.getElementById("result");
-console.log(userNumberInput.value);
 
+const checkButton = document.getElementById("even_or_odd");
 
 /* Al click devi
 1 - Controllare che il numero dell'utente soddisfi le richieste
@@ -53,3 +52,77 @@ checkButton.addEventListener('click', function () {
     }
 
 })
+
+
+/*
+
+Chiedere all’utente di inserire una parola Creare una funzione per capire se la parola inserita è palindroma
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Recupero la parola scritta dall'utente in pagina
+
+const userWord = document.getElementById('user_word');
+
+/**
+ * 
+ * @param {string} word word that user wrote in input
+ * @returns {boolean} true/false
+*/
+/*function isPalindrome(word) {
+    const revUserWord = word // Cercando online ho trovato questi metodi per:
+    .split('')                // Dividere la parola in un array di lettere che compongono la parola
+    .reverse()                // Inverte l'ordine dell'array
+    .join('')                   // Unisce gli elementi dell'array riformando la parola
+    console.log(revUserWord);
+    if (word === revUserWord) {
+        return true
+    }
+    
+    return false
+    
+}
+*/
+
+
+function isPalindrome(word) {
+    let wordReverse = '';
+    for (let i = word.length - 1; i >= 0; i--) {
+        wordReverse += word[i];   
+    }
+    console.log(wordReverse);
+    if (wordReverse === word){
+        return true
+    }
+
+    return false
+}
+
+
+//isPalindrome('cacca');
+//console.log(isPalindrome('otto'));
+
+const paliCheckButton = document.getElementById('palindrome');
+const paliResultDom = document.getElementById('palindrome_result');
+
+paliCheckButton.addEventListener('click', function () {
+
+    if (isPalindrome(userWord.value)) {
+        paliResultDom.innerHTML = "La parola è palindroma";
+    } else {
+        paliResultDom.innerHTML = "La parola non è palindroma";
+    }
+});
