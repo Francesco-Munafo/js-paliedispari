@@ -7,9 +7,9 @@ Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (u
 
 */
 
-function isEvenOrOdd(sum) {
+function isEvenOrOdd(userNumber, cpuNumber) {
 
-    if (sum % 2 === 0) {
+    if ((userNumber + cpuNumber) % 2 === 0) {
         return true;
     }
 
@@ -42,9 +42,9 @@ checkButton.addEventListener('click', function () {
         alert("Inserisci un numero da 1 a 5!")
     } else {
         const cpuNumber = Math.floor(Math.random() * 5) + 1;
-        const numberSum = Number(userNumberInput.value) + cpuNumber;
+        
 
-        if (isEvenOrOdd(numberSum)) {
+        if (isEvenOrOdd(Number(userNumberInput.value), cpuNumber)) {
             resultDom.innerHTML = "Il computer ha scelto" + " " + cpuNumber + " " + "quindi il numero è pari";
         } else {
             resultDom.innerHTML = "Il computer ha scelto" + " " + cpuNumber + " " + "quindi il numero è dispari";
