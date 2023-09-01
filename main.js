@@ -6,7 +6,15 @@ Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzion
 Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) Dichiariamo chi ha vinto.
 
 */
-
+/**
+ * isEvenOrOdd
+ * 
+ * Checks if the sum of a given number and a randomly generated number is even (true) or odd (false)
+ * 
+ * @param {number} userNumber This is the number that has been chosen by the player
+ * @param {number} cpuNumber This is the number that the cpu generated
+ * @returns {boolean}
+ */
 function isEvenOrOdd(userNumber, cpuNumber) {
 
     if ((userNumber + cpuNumber) % 2 === 0) {
@@ -36,18 +44,37 @@ SE pari=false
 ALTRIMENTI
     - stampa la somma è dispari
 */
+
+
 checkButton.addEventListener('click', function () {
 
+    let playerChoice = document.getElementById('player_selection').value; //Selezione utente (pari o dispari)
+    let checkResult = document.getElementById('player_choice_check'); //Elemento html dove andrà scritto il risultato del check
+    // Controllo che il numero rispettino le regole
     if (userNumberInput.value < 1 || userNumberInput.value > 5) {
         alert("Inserisci un numero da 1 a 5!")
     } else {
-        const cpuNumber = Math.floor(Math.random() * 5) + 1;
-        
+        const cpuNumber = Math.floor(Math.random() * 5) + 1; //Genero il numero della cpu
 
-        if (isEvenOrOdd(Number(userNumberInput.value), cpuNumber)) {
-            resultDom.innerHTML = "Il computer ha scelto" + " " + cpuNumber + " " + "quindi il numero è pari";
-        } else {
+
+        if (isEvenOrOdd(Number(userNumberInput.value), cpuNumber)) {   //Qui la funzione darà true di base quindi dispari
+            resultDom.innerHTML = "Il computer ha scelto" + " " + cpuNumber + " " + "quindi il numero è pari"; 
+            if (playerChoice === 'pari') {                  //Se l'utente ha scelto pari scrivi "Hai vinto!"
+                checkResult.innerHTML = "Hai Vinto!"
+                console.log('Hai vinto');
+            } else {
+                checkResult.innerHTML = "Hai perso"
+                console.log('Hai perso');
+            }
+        } else { //Altrimenti il risultato della funzione è false quindi dispari
             resultDom.innerHTML = "Il computer ha scelto" + " " + cpuNumber + " " + "quindi il numero è dispari";
+            if (playerChoice === 'dispari') {
+                checkResult.innerHTML = "Hai Vinto!"
+                console.log('Hai vinto');
+            } else {
+                checkResult.innerHTML = "Hai perso"
+                console.log('Hai perso');
+            }
         }
     }
 
@@ -101,10 +128,10 @@ const userWord = document.getElementById('user_word');
 function isPalindrome(word) {
     let wordReverse = '';
     for (let i = word.length - 1; i >= 0; i--) {
-        wordReverse += word[i];   
+        wordReverse += word[i];
     }
     console.log(wordReverse);
-    if (wordReverse === word){
+    if (wordReverse === word) {
         return true
     }
 

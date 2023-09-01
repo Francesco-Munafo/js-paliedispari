@@ -7,11 +7,17 @@
 </head>
 <body>
     <h2>Even or odd</h2>
-    <p>Type a number from 1 to 5. When you click the "check" button, Computer will select a random number from 1 to 5, do the numbers sum and check if the result is even or odd</p>
+    <p>Type a number from 1 to 5 and try to guess if the final number will be even or odd. When you click the "check" button, Computer will select a random number from 1 to 5, do the numbers sum and check if the result is even or odd</p>
+    <select name="evenodd" id="player_selection">
+        <option value="pari">Pari</option>
+        <option value="dispari">Dispari</option>
+    </select>
+
     <label for="user_number">Type a number from 1 to 5</label>
     <input type="number" id="user_number">
     <button id="even_or_odd">Check</button>
     <p id="result"></p>
+    <p id="player_choice_check"></p>
 
     <h2>Palindrome</h2>
     <p>Type a word and the script will tell you if the word is palindrome or not</p>
